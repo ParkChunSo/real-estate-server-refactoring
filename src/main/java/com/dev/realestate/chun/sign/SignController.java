@@ -1,47 +1,51 @@
 package com.dev.realestate.chun.sign;
 
-import com.dev.realestate.chun.sign.dto.SignInDto;
-import com.dev.realestate.chun.sign.dto.SignUpDto;
-import com.dev.realestate.chun.sign.dto.UserDto;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.dev.realestate.chun.enums.UserRole;
+import com.dev.realestate.chun.sign.dto.*;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController("/user")
 public class SignController {
+    private final SignService signService;
 
-    @PostMapping("/signin")
-    public void signIn(SignInDto dto){
+    public SignController(SignService signService) {
+        this.signService = signService;
+    }
 
+    @PostMapping("/signIn")
+    public UserDto signIn(SignInDto dto){
+        return signService.signIn(dto);
     }
 
     @PostMapping("/signUp")
-    public void signUp(SignUpDto dto){
-
+    public UserDto signUp(SignUpDto dto){
+        return signService.signUp(dto);
     }
 
     @PutMapping("/update")
-    public void updateInfo(SignUpDto dto){
-
+    public UserDto updateInfo(UpdateDto dto){
+        return signService.updateUser(dto);
     }
 
     @DeleteMapping("/delete")
-    public void deleteUser(SignInDto dto){
-
+    public void deleteUser(DeleteDto dto){
+        signService.deleteUser(dto);
     }
 
-    public List<UserDto> findAll(){
-        return null;
+    @GetMapping("/all")
+    public List<UserDto> findAllUser(){
+        return signService.findAllUser();
     }
 
-    public List<UserDto> findUserByLivingArea(String LivingArea){
-        return null;
+    @GetMapping("/{livingArea}")
+    public List<UserDto> findByLivingArea(@PathVariable String livingArea){
+        return signService.findByLivingArea(livingArea);
     }
 
-    public List<UserDto> findUserByRole(String role){
-        return null;
+    @GetMapping("/{role}")
+    public List<UserDto> findByRole(@PathVariable String role){
+        return signService.findByRole(UserRole.valueOf(role));
     }
 }

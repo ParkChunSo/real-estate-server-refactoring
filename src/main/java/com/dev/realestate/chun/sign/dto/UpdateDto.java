@@ -1,6 +1,9 @@
 package com.dev.realestate.chun.sign.dto;
 
-public class SignUpDto {
+import lombok.Getter;
+
+@Getter
+public class UpdateDto {
     private String email;
 
     private String password;
@@ -10,4 +13,5 @@ public class SignUpDto {
     private String nickname;
 
     private String phone;
+
 }

@@ -1,4 +1,4 @@
-package com.dev.realestate.chun.entity;
+package com.dev.realestate.chun.entitys;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
