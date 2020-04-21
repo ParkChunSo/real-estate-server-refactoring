@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -40,6 +41,10 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private Set<UserRole> roles;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = {CascadeType.MERGE,
+            CascadeType.REMOVE})
+    private List<Sale> saleList;
 
     //TODO("Security 넣으면서 PasswordEncoding 고려")
     public User updatePassword(String password){

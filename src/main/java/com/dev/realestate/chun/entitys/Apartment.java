@@ -12,25 +12,26 @@ import javax.persistence.*;
  * city: 특별시, 도
  * district: 시, 군 등
  * town: 읍, 면, 동 등
- * num: 빌딩 고유 번호
+ * streetNum: 도로명주소
+ * landNum:지번
+ * aptName: 아파트 이름
  * area: 면적
- * constructYear: 설립 연도
  * floor: 층
- * type: 아파트, 오피스텔, 단독주택
+ * constructYear: 설립 연도
  */
-@Table(name = "building_tbl")
+@Table(name = "apt_tbl")
 @Entity @Getter
 @AllArgsConstructor
-public class Building {
+public class Apartment {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String city;
     private String district;
     private String town;
-    private String num;
+    private String streetNum;
+    private String landNum;
+    private String aptName;
     private Double area;
-    private int floor;
-    private int constructYear;
-    @Enumerated(EnumType.STRING)
-    private HousingType type;
+    private Integer floor;
+    private Integer constructYear;
 }

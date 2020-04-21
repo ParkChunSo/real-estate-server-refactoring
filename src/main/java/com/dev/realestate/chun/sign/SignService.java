@@ -2,6 +2,7 @@ package com.dev.realestate.chun.sign;
 
 import com.dev.realestate.chun.entitys.User;
 import com.dev.realestate.chun.enums.UserRole;
+import com.dev.realestate.chun.exception.user.UserAlreadyExistException;
 import com.dev.realestate.chun.exception.user.UserNotFoundException;
 import com.dev.realestate.chun.sign.dto.*;
 import com.dev.realestate.chun.util.Converter;
@@ -19,16 +20,27 @@ public class SignService {
         this.converter = converter;
     }
 
+    public User findUserByEmail(String email) throws UserNotFoundException {
+        return userRepository.findUserByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException("해당 사용자는 존재하지 않습니다."));
+    }
+
+    public User saveUser(User user) throws UserAlreadyExistException {
+        if(!userRepository.existsByEmail(user.getEmail())) {
+            return userRepository.save(user);
+        }else{
+            throw new UserAlreadyExistException("'"+user.getEmail()+"'은 중복된 아이디입니다.");
+        }
+    }
+
     //TODO("저장하며 오류발생시 AOP로 해결")
     public UserDto signIn(SignInDto dto) throws UserNotFoundException {
-        User user = userRepository.findUserByEmail(dto.getEmail())
-                .orElseThrow(() -> new UserNotFoundException("해당 사용자는 존재하지 않습니다."));
-
+        User user = findUserByEmail(dto.getEmail());
         return converter.user2UserDto(user);
     }
 
-    public UserDto signUp(SignUpDto dto) {
-        User u = userRepository.save(converter.signUpDto2User(dto));
+    public UserDto signUp(SignUpDto dto) throws UserAlreadyExistException {
+        User u = saveUser(converter.signUpDto2User(dto));
         return converter.user2UserDto(u);
     }
 

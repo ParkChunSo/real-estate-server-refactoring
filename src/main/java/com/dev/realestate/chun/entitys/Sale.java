@@ -12,7 +12,7 @@ import java.util.Set;
  * price: 거래 가격(단위: 만원)
  * deposit: 보증금(전세 or 월세일 경우)
  * agent: 현재 거래 정보를 올린 중개인 정보
- * building: 건물 정보
+ * apartment: 건물 정보
  * state: 현재 거래 상태(대기, 매매중, 연락중,
  * type: 거래 형태(매매, 전세, 월세)
  */
@@ -29,10 +29,11 @@ public class Sale {
     private Double deposit = 0.0;
 
     // 중개인 정보 1:N 관계
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User agent;
-
     //TODO("빌딩이 없을 수 있다. 이점 유의하며 개발")
-    private Building building;
+    private Apartment apartment;
 
     @Enumerated(EnumType.STRING)
     private SaleState state;
