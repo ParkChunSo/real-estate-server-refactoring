@@ -3,8 +3,11 @@ package com.dev.realestate.chun.entitys;
 import com.dev.realestate.chun.enums.HousingType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 빌딩 정보를 저장하는 테이블
@@ -21,6 +24,7 @@ import javax.persistence.*;
  */
 @Table(name = "apt_tbl")
 @Entity @Getter
+@NoArgsConstructor
 @AllArgsConstructor
 public class Apartment {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,4 +38,6 @@ public class Apartment {
     private Double area;
     private Integer floor;
     private Integer constructYear;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "apartment", cascade = {CascadeType.MERGE, CascadeType.REMOVE})
+    private List<AptTransactionHistory> transactionHistoryList = new ArrayList<>();
 }

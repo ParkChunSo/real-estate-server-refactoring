@@ -1,6 +1,7 @@
 package com.dev.realestate.chun.entitys;
 
 import com.dev.realestate.chun.enums.DealType;
+import lombok.Getter;
 
 import javax.persistence.*;
 
@@ -9,7 +10,7 @@ import javax.persistence.*;
  */
 
 @Table(name = "officetel_transaction_history_tb;")
-@Entity
+@Entity @Getter
 public class OfficetelTransactionHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

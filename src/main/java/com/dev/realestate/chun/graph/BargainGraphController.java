@@ -12,7 +12,7 @@ import java.util.List;
  * 매매 정보를 통해 데이터 가져오기\
  */
 @RestController("/graph/bargain")
-public class BargainDealTypeGraphController implements DealTypeGraphController {
+public class BargainGraphController implements DealTypeGraphController {
 
     @Override
     @GetMapping(value = "/city/{city}")
