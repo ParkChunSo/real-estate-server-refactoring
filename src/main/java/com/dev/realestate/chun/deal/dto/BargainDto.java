@@ -1,4 +1,4 @@
-package com.dev.realestate.chun.graph.dto;
+package com.dev.realestate.chun.deal.dto;
 
 public class BargainDto extends GraphDto{
 }

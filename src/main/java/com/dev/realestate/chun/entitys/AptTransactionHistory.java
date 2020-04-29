@@ -1,7 +1,10 @@
 package com.dev.realestate.chun.entitys;
 
 import com.dev.realestate.chun.enums.DealType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -10,13 +13,9 @@ import javax.persistence.*;
  */
 
 @Table(name = "apt_transaction_history_tbl")
-@Entity @Getter
-public class AptTransactionHistory {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private Double price;
-    private Double pyPrice;
-    private DealType type;
+@Entity @Getter @Setter
+@DiscriminatorValue("apart")
+public class AptTransactionHistory extends TransactionHistory{
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "apartment_id")
     private Apartment apartment;

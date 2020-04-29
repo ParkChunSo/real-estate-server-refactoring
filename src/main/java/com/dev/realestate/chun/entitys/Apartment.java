@@ -1,6 +1,5 @@
 package com.dev.realestate.chun.entitys;
 
-import com.dev.realestate.chun.enums.HousingType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,6 +37,15 @@ public class Apartment {
     private Double area;
     private Integer floor;
     private Integer constructYear;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "apartment", cascade = {CascadeType.MERGE, CascadeType.REMOVE})
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            mappedBy = "apartment",
+            cascade = {CascadeType.MERGE, CascadeType.REMOVE})
     private List<AptTransactionHistory> transactionHistoryList = new ArrayList<>();
+
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            mappedBy = "apartment",
+            cascade = {CascadeType.MERGE, CascadeType.REMOVE})
+    private List<Sale> saleList = new ArrayList<>();
 }

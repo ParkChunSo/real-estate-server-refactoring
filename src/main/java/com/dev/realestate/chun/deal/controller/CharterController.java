@@ -1,22 +1,14 @@
-package com.dev.realestate.chun.graph;
+package com.dev.realestate.chun.deal.controller;
 
-import com.dev.realestate.chun.graph.dto.BargainDto;
-import com.dev.realestate.chun.graph.dto.GraphDto;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import com.dev.realestate.chun.deal.dto.GraphDto;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * 매매 정보를 통해 데이터 가져오기\
- */
-@RestController("/graph/bargain")
-public class BargainGraphController implements DealTypeGraphController {
-
+@RestController("/deal/charter")
+public class CharterController implements DealTypeController{
     @Override
-    @GetMapping(value = "/city/{city}")
-    public List<BargainDto> findByCity(@PathVariable String city) {
+    public List<? extends GraphDto> findByCity(String city) {
         return null;
     }
 

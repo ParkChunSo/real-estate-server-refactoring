@@ -32,12 +32,16 @@ public class Sale {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User agent;
+
     //TODO("빌딩이 없을 수 있다. 이점 유의하며 개발")
+    @ManyToOne(fetch = FetchType.EAGER)
     private Apartment apartment;
 
     @Enumerated(EnumType.STRING)
     private SaleState state;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Enumerated(EnumType.STRING)
     private Set<DealType> type;
 
 }

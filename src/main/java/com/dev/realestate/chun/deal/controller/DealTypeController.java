@@ -1,10 +1,10 @@
-package com.dev.realestate.chun.graph;
+package com.dev.realestate.chun.deal.controller;
 
-import com.dev.realestate.chun.graph.dto.GraphDto;
+import com.dev.realestate.chun.deal.dto.GraphDto;
 
 import java.util.List;
 
-public interface DealTypeGraphController {
+public interface DealTypeController {
     /**
      * @param city: 시, 도를 의미한다.
      * @return 시, 도 별 연평균 가격을 제공한다.

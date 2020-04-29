@@ -9,7 +9,7 @@ import javax.persistence.*;
  * 전세 거래정보를 저장하는 테이블
  */
 
-@Table(name = "officetel_transaction_history_tb;")
+@Table(name = "officetel_transaction_history_tbl")
 @Entity @Getter
 public class OfficetelTransactionHistory {
     @Id

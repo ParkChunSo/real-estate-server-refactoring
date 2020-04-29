@@ -1,5 +1,6 @@
 package com.dev.realestate.chun.entitys;
 
+import com.dev.realestate.chun.enums.Role;
 import com.dev.realestate.chun.enums.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,10 +41,10 @@ public class User {
     private String phone;
 
     @Enumerated(EnumType.STRING)
+    @ElementCollection(fetch = FetchType.EAGER)
     private Set<UserRole> roles;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = {CascadeType.MERGE,
-            CascadeType.REMOVE})
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "agent", cascade = {CascadeType.MERGE, CascadeType.REMOVE})
     private List<Sale> saleList;
 
     //TODO("Security 넣으면서 PasswordEncoding 고려")
