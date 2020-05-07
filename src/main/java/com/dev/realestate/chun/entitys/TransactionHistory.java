@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Getter @Setter
@@ -14,13 +14,9 @@ import java.util.Date;
 public abstract class TransactionHistory {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    private String city;
-//    private String district;
-//    private String dong;
     private Double price;
     private Double pyPrice;
     @Enumerated(EnumType.STRING)
     private DealType type;
-    @Temporal(value = TemporalType.DATE)
-    private Date date;
+    private LocalDate date;
 }

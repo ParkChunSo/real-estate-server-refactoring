@@ -27,13 +27,13 @@ class ChunApplicationTests {
         t.setPrice(200d);
         t.setPyPrice(2d);
         t.setType(DealType.BARGAIN);
-        t.setDate(Date.valueOf(LocalDate.of(2020, 4, 27)));
+//        t.setDate(Date.valueOf(LocalDate.of(2020, 4, 27)));
 
         AptTransactionHistory t1 = new AptTransactionHistory();
         t1.setPrice(200d);
         t1.setPyPrice(2d);
         t1.setType(DealType.BARGAIN);
-        t1.setDate(Date.valueOf(LocalDate.of(2020, 4, 27)));
+//        t1.setDate(Date.valueOf(LocalDate.of(2020, 4, 27)));
 
         repo.saveAll(Arrays.asList(t, t1));
 

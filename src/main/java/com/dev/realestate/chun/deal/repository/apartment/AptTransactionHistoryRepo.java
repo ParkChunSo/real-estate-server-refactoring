@@ -6,5 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface AptTransactionHistoryRepo extends JpaRepository<AptTransactionHistory, Long> {
+public interface AptTransactionHistoryRepo extends JpaRepository<AptTransactionHistory, Long>, AptTransactionHistoryRepoCustom {
+    
 }

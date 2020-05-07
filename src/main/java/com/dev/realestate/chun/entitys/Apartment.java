@@ -1,6 +1,7 @@
 package com.dev.realestate.chun.entitys;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -22,7 +23,7 @@ import java.util.List;
  * constructYear: 설립 연도
  */
 @Table(name = "apt_tbl")
-@Entity @Getter
+@Entity @Getter @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Apartment {
@@ -40,7 +41,7 @@ public class Apartment {
     @OneToMany(
             fetch = FetchType.LAZY,
             mappedBy = "apartment",
-            cascade = {CascadeType.MERGE, CascadeType.REMOVE})
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private List<AptTransactionHistory> transactionHistoryList = new ArrayList<>();
 
     @OneToMany(
@@ -48,4 +49,8 @@ public class Apartment {
             mappedBy = "apartment",
             cascade = {CascadeType.MERGE, CascadeType.REMOVE})
     private List<Sale> saleList = new ArrayList<>();
+
+    public void addTransactionHistory(AptTransactionHistory transactionHistory){
+        this.transactionHistoryList.add(transactionHistory);
+    }
 }

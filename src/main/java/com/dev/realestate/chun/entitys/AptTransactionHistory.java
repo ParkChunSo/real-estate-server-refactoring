@@ -1,8 +1,5 @@
 package com.dev.realestate.chun.entitys;
 
-import com.dev.realestate.chun.enums.DealType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
