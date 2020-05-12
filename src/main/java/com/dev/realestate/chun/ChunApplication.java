@@ -7,9 +7,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @SpringBootApplication
 @EnableAspectJAutoProxy
 public class ChunApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(ChunApplication.class, args);
     }
-
 }

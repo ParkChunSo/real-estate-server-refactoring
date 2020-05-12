@@ -1,7 +1,7 @@
 package com.dev.realestate.chun.deal.repository;
 
 import com.dev.realestate.chun.deal.dao.DealDao;
-import com.dev.realestate.chun.deal.repository.apartment.ApartmentRepository;
+import com.dev.realestate.chun.deal.repository.apartment.ApartmentRepo;
 import com.dev.realestate.chun.deal.repository.apartment.AptTransactionHistoryRepo;
 import com.dev.realestate.chun.entitys.Apartment;
 import com.dev.realestate.chun.entitys.AptTransactionHistory;
@@ -22,7 +22,7 @@ public class AptRepoUnitTests {
     @Autowired
     private AptTransactionHistoryRepo repo;
     @Autowired
-    private ApartmentRepository apartmentRepository;
+    private ApartmentRepo apartmentRepo;
 
     private final String city= "경기도";
     private final String district = "양평군";
@@ -66,8 +66,8 @@ public class AptRepoUnitTests {
 
     @Test
     void findByCity(){
-        apartmentRepository.saveAll(apartmentList);
-//        apartmentRepository.save(apartmentList.get(0));
+        apartmentRepo.saveAll(apartmentList);
+//        apartmentRepo.save(apartmentList.get(0));
         List<DealDao> list =
                 repo.findByDealTypeAndCityAndDistrictAndTown(DealType.BARGAIN, "경기도", "양평군", "양평읍");
 

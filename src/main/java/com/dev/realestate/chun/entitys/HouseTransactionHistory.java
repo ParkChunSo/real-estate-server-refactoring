@@ -10,13 +10,8 @@ import javax.persistence.*;
  */
 @Table(name = "house_transaction_history_tb")
 @Entity @Getter
-public class HouseTransactionHistory {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private Double price;
-    private Double pyPrice;
-    private DealType type;
+@DiscriminatorValue("house")
+public class HouseTransactionHistory extends TransactionHistory{
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "house_id")
     private House house;

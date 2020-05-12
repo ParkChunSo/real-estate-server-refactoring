@@ -13,13 +13,19 @@ public interface DealTypeController {
 
     List<? extends GraphDto> findByCityAndDate(String city, String date);
 
+    List<? extends GraphDto> findByCityAndDate(String city, String from, String to);
+
     List<? extends GraphDto> findByCityAndDistrict(String city, String district);
 
     List<? extends GraphDto> findByCityAndDistrictAndDate(String city, String district, String date);
 
+    List<? extends GraphDto> findByCityAndDistrictAndDate(String city, String district, String from, String to);
+
     List<? extends GraphDto> findByCityAndDistrictAndTown(String city, String district, String town);
 
     List<? extends GraphDto> findByCityAndDistrictAndTownAndDate(String city, String district, String town, String date);
+
+    List<? extends GraphDto> findByCityAndDistrictAndTownAndDate(String city, String district, String town, String from, String to);
 
     /**
      *세종시같은 경우 district가 없기 때문에 city와 town으로 검색 가능하도록
@@ -27,5 +33,7 @@ public interface DealTypeController {
     List<? extends GraphDto> findByCityAndTown(String city, String town);
 
     List<? extends GraphDto> findByCityAndTownAndDate(String city, String town, String date);
+
+    List<? extends GraphDto> findByCityAndTownAndDate(String city, String town, String from, String to);
 
 }

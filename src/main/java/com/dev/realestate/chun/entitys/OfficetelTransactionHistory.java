@@ -11,13 +11,8 @@ import javax.persistence.*;
 
 @Table(name = "officetel_transaction_history_tbl")
 @Entity @Getter
-public class OfficetelTransactionHistory {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private Double price;
-    private Double pyPrice;
-    private DealType type;
+@DiscriminatorValue("officetel")
+public class OfficetelTransactionHistory extends TransactionHistory{
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "officetel_id")
     private Officetel officetel;
