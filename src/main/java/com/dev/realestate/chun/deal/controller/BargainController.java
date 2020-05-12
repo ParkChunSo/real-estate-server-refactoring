@@ -27,6 +27,12 @@ public class BargainController implements DealTypeController {
     }
 
     @Override
+    @GetMapping(value = "/city/{city}/from/{from}/to/{to}")
+    public List<? extends GraphDto> findByCityAndDate(@PathVariable String city, @PathVariable String from, @PathVariable String to) {
+        return null;
+    }
+
+    @Override
     @GetMapping(value = "/city/{city}/district/{district}")
     public List<? extends GraphDto> findByCityAndDistrict(@PathVariable String city, @PathVariable String district) {
         return null;
@@ -35,6 +41,12 @@ public class BargainController implements DealTypeController {
     @Override
     @GetMapping(value = "/city/{city}/district/{district}/date/{date}")
     public List<? extends GraphDto> findByCityAndDistrictAndDate(@PathVariable String city, @PathVariable String district, @PathVariable String date) {
+        return null;
+    }
+
+    @Override
+    @GetMapping(value = "/city/{city}/district/{district}/from/{from}/to/{to}")
+    public List<? extends GraphDto> findByCityAndDistrictAndDate(@PathVariable String city, @PathVariable String district, @PathVariable String from, @PathVariable String to) {
         return null;
     }
 
@@ -51,6 +63,12 @@ public class BargainController implements DealTypeController {
     }
 
     @Override
+    @GetMapping(value = "/city/{city}/district/{district}/town/{town}/from/{from}/to/{to}")
+    public List<? extends GraphDto> findByCityAndDistrictAndTownAndDate(@PathVariable String city, @PathVariable String district, @PathVariable String town, @PathVariable String from, @PathVariable String to) {
+        return null;
+    }
+
+    @Override
     @GetMapping(value = "/city/{city}/town/{town}")
     public List<? extends GraphDto> findByCityAndTown(@PathVariable String city, @PathVariable String town) {
         return null;
@@ -59,6 +77,12 @@ public class BargainController implements DealTypeController {
     @Override
     @GetMapping(value = "/city/{city}/town/{town}/date/{date}")
     public List<? extends GraphDto> findByCityAndTownAndDate(@PathVariable String city, @PathVariable String town, @PathVariable String date) {
+        return null;
+    }
+
+    @Override
+    @GetMapping(value = "/city/{city}/town/{town}/from/{from}/to/{to}")
+    public List<? extends GraphDto> findByCityAndTownAndDate(@PathVariable String city, @PathVariable String town, @PathVariable String from, @PathVariable String to) {
         return null;
     }
 }
